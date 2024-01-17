@@ -4,6 +4,8 @@ Pizza shop project:
 3 Pagination with the help of https://mockapi.io/;
 4 Also implemented by the coryzna itself so where you can get or remove pizza and also button return to the main street;
 
+LINK: https://pizza-store-flax.vercel.app/
+
 Technologies:
 
 ReactJS 18
