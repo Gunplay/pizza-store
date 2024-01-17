@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../../redux/slices/cartSlice';
+import { addItem, minusItem } from '../../redux/slices/cartSlice';
 import '../pizza-block/_button.scss';
 import '../pizza-block/_pizza-block.scss';
 
@@ -93,20 +93,27 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
 						<span>Add pizza</span>
 
 						{cartItem ? <i>{addedCount}</i> : null}
-						<svg
-							onClick={() => handlePizzaCount(-1)}
-							width='12'
-							height='12'
-							viewBox='0 0 12 12'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M10.8 4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z'
-								fill='white'
-							/>
-						</svg>
 					</button>
+					{!cartItem === 0 ? (
+						<button
+							onClick={() => dispatch(minusItem(id))}
+							className='button--minus'
+						>
+							<svg
+								onClick={() => handlePizzaCount(-1)}
+								width='12'
+								height='12'
+								viewBox='0 0 12 12'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M10.8 4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z'
+									fill='white'
+								/>
+							</svg>
+						</button>
+					) : null}
 				</div>
 			</div>
 		</div>
